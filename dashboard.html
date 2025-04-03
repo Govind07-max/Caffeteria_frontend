@@ -176,24 +176,24 @@
             height: auto;
             border-radius: 10px;
         }
-        .bookings-table {
+        .bookings-table, .orders-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        .bookings-table th, .bookings-table td {
+        .bookings-table th, .bookings-table td, .orders-table th, .orders-table td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
         }
-        .bookings-table th {
+        .bookings-table th, .orders-table th {
             background-color: #f4f4f4;
             font-weight: bold;
         }
-        .bookings-table tr:nth-child(even) {
+        .bookings-table tr:nth-child(even), .orders-table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        .bookings-table tr:hover {
+        .bookings-table tr:hover, .orders-table tr:hover {
             background-color: #f1f1f1;
         }
     </style>
@@ -218,6 +218,7 @@
                     <li><i class="fas fa-chart-pie"></i> Sales Reports</li>
                     <li><i class="fas fa-users"></i> Customer Feedback</li>
                     <li id="tableBookingsOption"><i class="fas fa-chair"></i> Table Bookings</li>
+                    <li id="ordersOption"><i class="fas fa-receipt"></i> Orders</li>
                 </ul>
             </nav>
             <button class="manage-menu-button"><a href="Dynamic_menu.html">🍽️ Manage Menu</a></button>
@@ -285,6 +286,23 @@
                     </tbody>
                 </table>
             </section>
+
+            <section id="ordersSection" style="display: none;">
+                <h2>Orders</h2>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            
+                            <th>Items</th>
+                            <th>Total Amount</th>
+                            <th>Customer Name</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                    </tbody>
+                </table>
+            </section>
         </main>
     </div>
 
@@ -295,14 +313,24 @@
             const tableBookingsSection = document.getElementById('tableBookingsSection');
             const bookingsTableBody = document.getElementById('bookingsTableBody');
 
+            const ordersOption = document.getElementById('ordersOption');
+            const ordersSection = document.getElementById('ordersSection');
+            const ordersTableBody = document.getElementById('ordersTableBody');
+
             // Connect to the Socket.IO server
             const socket = io("https://dynamic-caffeteria-backend.onrender.com");
-
             // Event listener to show the Table Bookings section
             tableBookingsOption.addEventListener('click', function () {
                 // Hide other sections and show the bookings section
                 document.querySelectorAll('main > section').forEach(section => section.style.display = 'none');
                 tableBookingsSection.style.display = 'block';
+            });
+
+            // Event listener to show the Orders section
+            ordersOption.addEventListener('click', function () {
+                // Hide other sections and show the orders section
+                document.querySelectorAll('main > section').forEach(section => section.style.display = 'none');
+                ordersSection.style.display = 'block';
             });
 
             // Listen for new booking events from the server
@@ -322,6 +350,22 @@
 
                 // Append the new row to the table
                 bookingsTableBody.appendChild(row);
+            });
+
+            // Listen for new order events from the server
+            socket.on("newOrder", function (order) {
+                // Create a new row for the order
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    
+                    <td>${order.items.map(item => `${item.name} x${item.quantity}`).join(", ")}</td>
+                    <td>₹${order.totalAmount}</td>
+                    <td>${order.user}</td>
+                    
+                `;
+
+                // Append the new row to the table
+                ordersTableBody.appendChild(row);
             });
         });
     </script>
