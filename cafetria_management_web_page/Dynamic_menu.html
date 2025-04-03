@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Management</title>
+  <style>
+    :root {
+      --primary-color: #3b82f6;
+      --primary-hover: #2563eb;
+      --danger-color: #ef4444;
+      --danger-hover: #dc2626;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      background-color: #b0bacf;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .header {
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: var(--gray-800);
+      margin: 0;
+    }
+
+    .header p {
+      color: var(--gray-600);
+      margin-top: 0.5rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .search-box {
+      flex: 1;
+      position: relative;
+      min-width: 200px;
+    }
+
+    .search-box input {
+      width: 50vw;
+      padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+      border: 1px solid var(--gray-300);
+      border-radius: 0.375rem;
+      outline: none;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-600);
+    }
+
+    select {
+      padding: 0.5rem;
+      border: 1px solid var(--gray-300);
+      border-radius: 0.375rem;
+      outline: none;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .menu-item.unavailable {
+      opacity: 0.6;
+    }
+
+    .menu-item-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .menu-item-content {
+      padding: 1rem;
+    }
+
+    .menu-item-info h3 {
+      margin: 0;
+      color: var(--gray-800);
+    }
+
+    .menu-item-info .description {
+      color: var(--gray-600);
+      font-size: 0.875rem;
+      margin: 0.5rem 0;
+    }
+
+    .menu-item-info .price {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+
+    .menu-item-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 0.375rem;
+      padding: 0.5rem 1rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .primary-btn {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .primary-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .edit-btn,
+    .delete-btn {
+      padding: 0.5rem;
+      background: none;
+      color: var(--gray-600);
+    }
+
+    .edit-btn:hover {
+      color: var(--primary-color);
+    }
+
+    .delete-btn:hover {
+      color: var(--danger-color);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem;
+      z-index: 50;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-600);
+      padding: 0;
+    }
+
+    .modal-body {
+      padding: 1rem;
+    }
+
+    .menu-item-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.5rem;
+      border: 1px solid var(--gray-300);
+      border-radius: 0.375rem;
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .submit-btn {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    @media (max-width: 640px) {
+      .controls {
+        flex-direction: column;
+      }
+      .search-box {
+        width: 100%;
+      }
+      .modal {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Menu Management</h1>
+      <p>Manage your cafeteria's menu items</p>
+    </header>
+
+    <div class="controls">
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search" placeholder="Search menu items...">
+      </div>
+      
+      <select id="category">
+        <option value="all">All Categories</option>
+        <option value="1">Main Dishes</option>
+        <option value="2">Sides</option>
+        <option value="3">Beverages</option>
+        <option value="4">Desserts</option>
+      </select>
+      
+      <button id="add-item" class="primary-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+        Add New Item
+      </button>
+    </div>
+
+    <div id="menu-items" class="menu-items"></div>
+  </div>
+
+  <script>
+    // Data for categories and initial menu items
+    const categories = [
+      { id: '1', name: 'Main Dishes' },
+      { id: '2', name: 'Sides' },
+      { id: '3', name: 'Beverages' },
+      { id: '4', name: 'Desserts' },
+    ];
+
+    let menuItems = [
+      {
+        id: '1',
+        name: 'Grilled Chicken Sandwich',
+        price: 12.99,
+        category: '1',
+        available: true,
+        description: 'Tender grilled chicken with fresh lettuce and tomato',
+        image: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=800',
+      },
+      {
+        id: '2',
+        name: 'Caesar Salad',
+        price: 8.99,
+        category: '2',
+        available: true,
+        description: 'Fresh romaine lettuce with classic Caesar dressing',
+        image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=800',
+      },
+    ];
+
+    // Utility functions
+    function generateId() {
+      return Date.now().toString();
+    }
+
+    function filterItems(searchQuery, selectedCategory) {
+      return menuItems.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
+        return matchesSearch && matchesCategory;
+      });
+    }
+
+    function formatPrice(price) {
+      return price.toFixed(2);
+    }
+
+    // Function to create menu item card
+    function createMenuItemElement(item) {
+      const element = document.createElement('div');
+      element.className = `menu-item ${!item.available ? 'unavailable' : ''}`;
+      element.innerHTML = `
+        ${item.image ? `<img src="${item.image}" alt="${item.name}" class="menu-item-image">` : ''}
+        <div class="menu-item-content">
+          <h3>${item.name}</h3>
+          <p>${item.description}</p>
+          <p class="price">${formatPrice(item.price)} Rs</p>
+          ${!item.available ? '<span class="out-of-stock">Out of Stock</span>' : ''}
+          <div class="menu-item-actions">
+            <button class="edit-btn">✏️ Edit</button>
+            <button class="delete-btn">🗑️ Delete</button>
+          </div>
+        </div>
+      `;
+
+      element.querySelector('.edit-btn').addEventListener('click', () => openFormModal(item));
+      element.querySelector('.delete-btn').addEventListener('click', () => deleteMenuItem(item.id));
+      return element;
+    }
+
+    // Function to render menu items
+    function renderMenuItems() {
+      const container = document.getElementById('menu-items');
+      const searchQuery = document.getElementById('search').value;
+      const selectedCategory = document.getElementById('category').value;
+      container.innerHTML = '';
+      const filteredItems = filterItems(searchQuery, selectedCategory);
+
+      filteredItems.forEach(item => {
+        const element = createMenuItemElement(item);
+        container.appendChild(element);
+      });
+    }
+
+    // Form Modal for Add/Edit
+    function openFormModal(item = {}) {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <h2>${item.id ? 'Edit' : 'Add'} Menu Item</h2>
+          <label>Name: <input id="name" value="${item.name || ''}"></label>
+          <label>Price: <input id="price" type="number" value="${item.price || ''}"></label>
+          <label>Category: 
+            <select id="category-select">
+              ${categories.map(c => `<option value="${c.id}" ${item.category === c.id ? 'selected' : ''}>${c.name}</option>`).join('')}
+            </select>
+          </label>
+          <label>Description: <textarea id="description">${item.description || ''}</textarea></label>
+          <label>Image URL: <input id="image" value="${item.image || ''}"></label>
+          <label>Available: <input type="checkbox" id="available" ${item.available ? 'checked' : ''}></label>
+          <button id="save">Save</button>
+          <button id="close">Close</button>
+        </div>
+      `;
+
+      modal.querySelector('#save').addEventListener('click', () => {
+        const updatedItem = {
+          id: item.id || generateId(),
+          name: modal.querySelector('#name').value,
+          price: parseFloat(modal.querySelector('#price').value),
+          category: modal.querySelector('#category-select').value,
+          description: modal.querySelector('#description').value,
+          image: modal.querySelector('#image').value,
+          available: modal.querySelector('#available').checked,
+        };
+
+        if (item.id) {
+          menuItems = menuItems.map(i => i.id === item.id ? updatedItem : i);
+        } else {
+          menuItems.push(updatedItem);
+        }
+        document.body.removeChild(modal);
+        renderMenuItems();
+      });
+
+      modal.querySelector('#close').addEventListener('click', () => document.body.removeChild(modal));
+      document.body.appendChild(modal);
+    }
+
+    // Delete menu item
+    function deleteMenuItem(id) {
+      if (confirm('Are you sure you want to delete this item?')) {
+        menuItems = menuItems.filter(item => item.id !== id);
+        renderMenuItems();
+      }
+    }
+
+    // Event Listeners
+    document.getElementById('add-item').addEventListener('click', () => openFormModal());
+    document.getElementById('search').addEventListener('input', renderMenuItems);
+    document.getElementById('category').addEventListener('change', renderMenuItems);
+
+    // Initial Render
+    document.addEventListener('DOMContentLoaded', renderMenuItems);
+  </script>
+</body>
+</html>

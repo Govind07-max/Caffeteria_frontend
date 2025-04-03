@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria Management</title>
+    <link rel="stylesheet" href="cafeteria.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Cafeteria</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="background">
+            <h1>HOTEL GOKUL</h1>
+            <p>Welcome to Gokul Cafeteria – where great taste meets comfort! Enjoy a variety of freshly prepared meals, fast service, and a cozy atmosphere, all crafted to make your dining experience memorable.</p>
+        </div>
+        <section>
+            <h1>What's on your mind?</h1>
+            <div class="container">
+                <div class="food-item">
+                    <img src="./all_images/burger.jpg" alt="Burger">
+                    <p>Burger</p>
+                </div>
+                <div class="food-item">
+                    <img src="./all_images/momo.jpg" alt="MOMO">
+                    <p>MOMO</p>
+                </div>
+                <div class="food-item">
+                    <img src="./all_images/pizza.jpg" alt="PIZZA">
+                    <p>PIZZA</p>
+                </div>
+                <div class="food-item">
+                    <img src="./all_images/noodles.jpg" alt="NOODLES">
+                    <p>NOODLES</p>
+                </div>
+                <div class="food-item">
+                    <img src="./all_images/biryani.jpg" alt="BIRYANI">
+                    <p>BIRYANI</p>
+                </div>
+                <div class="food-item">
+                    <img src="./all_images/coffee.jpg" alt="COFFEE">
+                    <p>COFFEE</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h1>Cafeteria Management Features</h1>
+            <div class="container">
+                <div class="feature">
+                    <img src="./all_images/prebook_seat.jpeg" alt="Pre-Book Your Meal or Seat">
+                    <h3>Pre-Book Your Meal or Seat</h3>
+                </div>
+                <div class="feature">
+                    <img src="./all_images/real_time_cafeteria_satatus.jpeg" alt="Check Real-Time Cafeteria Status">
+                    <h3>Check Real-Time Cafeteria Status</h3>
+                </div>
+                <div class="feature">
+                    <img src="./all_images/dianamic_menu.jpg" alt="View Dynamic Menus">
+                    <h3>View Dynamic Menus</h3>
+                </div>
+                <div class="feature">
+                    <img src="./all_images/feedback.jpeg" alt="Give Feedback Easily">
+                    <h3>Give Feedback Easily</h3>
+                </div>
+                <div class="feature">
+                    <img src="./all_images/reduace_waste.webp" alt="Help Reduce Food Waste">
+                    <h3>Help Reduce Food Waste</h3>
+                </div>
+                <div class="feature">
+                    <img src="./all_images/waiter_calling.jpeg" alt="Call for Service">
+                    <h3>Call for Service</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+<div class="logo">
+    <img src="./all_images/logo.jpg" alt="logo">
+</div>
+
+.logo{
+    width: 50px;
+    height: 50px;
+
+}
+
+<div class="background">
+    <h1>HOTEL GOKUL</h1>
+    <p>Welcome to Gokul Cafeteria – where great taste meets comfort! Enjoy a variety of freshly prepared meals, fast service, and a cozy atmosphere, all crafted to make your dining experience memorable.</p>
+</div>
+
+
+.background {
+    background-image: url('./all_images/first_background.jpg');
+    background-size: cover;
+    height: 1000px;
+    background-position: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}
+
+h1 {
+    font-size: 7rem;
+    margin: 0;
+    padding-top: 200px;
+}
+
+p {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+
+
+
+<div class="background">
+    <h1>HOTEL GOKUL</h1>
+    <p>Welcome to Gokul Cafeteria – where great taste meets comfort! Enjoy a variety of freshly prepared meals, fast service, and a cozy atmosphere, all crafted to make your dining experience memorable.</p>
+    <!-- Buttons -->
+    <div class="button-container">
+        <button class="menu-btn" onclick="window.location.href='menu.html';">Order Menu</button>
+        <button class="book-btn">Book Seat</button>
+    </div>
+</div>
+
+
+.background {
+    background-image: url('./all_images/first_background.jpg');
+    background-size: cover;
+    height: 1000px;
+    background-position: center;
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+    margin-bottom: 70px;
+}
+
+.background h1 {
+    font-size: 8rem;
+    margin: 0;
+    padding-top: 300px;
+    
+}

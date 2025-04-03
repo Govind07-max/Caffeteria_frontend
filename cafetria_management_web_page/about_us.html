@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8e7e7;
+        }
+        .logo img {
+            height: 70px;
+            width: 150px;
+            margin-left: 200px;
+            border: solid 3px rgb(249, 0, 0);
+            border-radius: 40px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            font-size: 1.2rem;
+            margin: 0;
+            padding: 0;
+            margin-right: 100px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        nav ul li a.cta {
+            background-color: #ff4b5c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .why-choose-us {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e0e0e0;
+            color: #333;
+            padding-top: 20px;
+            padding-bottom: 500px;
+        }
+        .why-choose-us h1 {
+            font-size: 5rem;
+            margin-bottom: 30px;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+        .column {
+            max-width: 400px;
+            text-align: left;
+            font-size: 3rem;
+        }
+        .column h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .column ul li {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: #555;
+        }
+        .column ul li::before {
+            content: "✔";
+            color: #e67e22;
+            margin-right: 10px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 200px;
+        }
+        .stat-box {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 450px;
+        }
+        .stat-box h3 {
+            font-size: 2rem;
+            color: #e67e22;
+            margin-bottom: 10px;
+        }
+        .stat-box p {
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./Images/logo.png" alt="cafeteria Management">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">sign up</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="signup.html" class="cta">Your Account</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="why-choose-us">
+        <h1>Why Clients Choose Us?</h1>
+        <div class="content">
+            <div class="column">
+                <h2>The Best Cafeteria Management</h2>
+                <ul>
+                    <li>We offer seamless service with top efficiency</li>
+                    <li>Wide variety of cuisines and beverages</li>
+                    <li>Quick and hygienic food preparation</li>
+                    <li>Cost-effective solutions</li>
+                    <li>Advanced technology for order management</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2>What We Do Our Services</h2>
+                <ul>
+                    <li>Order tracking and analytics</li>
+                    <li>Customizable meal plans</li>
+                    <li>Integrated digital payment systems</li>
+                    <li>Real-time inventory management</li>
+                    <li>Feedback-driven improvement</li>
+                </ul>
+            </div>
+        </div>
+        <div class="stats">
+            <div class="stat-box">
+                <h3>10+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-box">
+                <h3>50K+</h3>
+                <p>Total Orders Managed</p>
+            </div>
+            <div class="stat-box">
+                <h3>15+</h3>
+                <p>Award Recognitions</p>
+            </div>
+            <div class="stat-box">
+                <h3>30k</h3>
+                <p>Trusted Clients</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
