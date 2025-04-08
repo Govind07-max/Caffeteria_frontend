@@ -3,213 +3,457 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu</title>
+    <title>Menu | Gokul Cafeteria</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #abf2fb;
-        color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-      }
-      .video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        object-fit: cover;
-      }
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: #f8e7e7;
-        width: 100%;
-      }
-      .logo img {
-        height: 70px;
-        width: 150px;
-        margin-left: 200px;
-        border: solid 3px rgb(249, 0, 0);
-        border-radius: 40px;
-      }
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 50px;
-        font-size: 1.2rem;
-        margin: 0;
-        padding: 0;
-        margin-right: 100px;
-      }
-      nav ul li {
-        display: inline;
-      }
-      nav ul li a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-      }
-      nav ul li a.cta {
-        background-color: #ff4b5c;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-      }
-      .container {
-        width: 400px;
-        padding: 20px;
-        background-color: #270c0588;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        margin-top: 100px;
-      }
-      h1,
-      h2 {
-        margin-bottom: 20px;
-      }
-      #product-list {
-        margin-bottom: 30px;
-      }
-      .product {
-        background-color: #333333;
-        padding: 10px;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 5px;
-      }
-      .product button {
-        background-color: #c34810;
-        border: none;
-        padding: 5px 10px;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      .product button:hover {
-        background-color: #7b3b1d;
-      }
-      #cart-items {
-        margin-bottom: 20px;
-      }
-      #cart-total {
-        text-align: right;
-      }
-      #checkout-btn {
-        background-color: #c34810;
-        border: none;
-        padding: 10px;
-        color: white;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      #checkout-btn:hover {
-        background-color: #7b3b1d;
-      }
-      .hidden {
-        display: none;
-      }
+   :root {
+  --primary-blue: #007bff;
+  --hover-blue: #0056b3;
+  --primary-orange: #ff704d;
+  --hover-orange: #e65c2a;
+  --background: #fff5e6;
+  --text-dark: #2d3436;
+  --text-light: #636e72;
+  --card-bg: #ffffff;
+  --gradient-1: linear-gradient(135deg, #ff6b6b, #ffa502);
+  --gradient-2: linear-gradient(135deg, #007bff, #56ccf2);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--background);
+  background-image: linear-gradient(135deg, #f0f7ff 0%, #fff5e6 100%);
+  min-height: 100vh;
+}
+
+header {
+  background: var(--gradient-1);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 70px;
+  width: 150px;
+  border-radius: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: white !important;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  transform: translateY(-2px);
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.cta {
+  background: var(--gradient-2) !important;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #0056b3, #00d2ff) !important;
+}
+
+main {
+  margin-top: 120px;
+  padding: 2rem 5%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 2rem;
+}
+
+.menu-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-1);
+  border-radius: 5px 5px 0 0;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  background: linear-gradient(45deg, var(--primary-orange), #ff9248);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.add-to-cart {
+  background: var(--gradient-2);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.add-to-cart:hover {
+  background: var(--gradient-1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.add-to-cart i {
+  transition: transform 0.3s ease;
+}
+
+.add-to-cart:hover i {
+  transform: rotate(90deg);
+}
+
+.cart-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cart-title {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.cart-item {
+  background: rgba(240, 247, 255, 0.5);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+}
+
+.cart-total {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(0, 123, 255, 0.1);
+}
+
+.total-amount {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  text-align: center;
+  background: linear-gradient(45deg, var(--primary-orange), #ff9248);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#checkout-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: var(--gradient-1);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 112, 77, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#checkout-btn::before {
+  content: "🛒";
+  font-size: 1.2rem;
+}
+
+#checkout-btn:hover {
+  background: var(--gradient-2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+#checkout-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 968px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-radius: 15px 15px 0 0;
+    z-index: 1000;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .cart-total {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+
+  #checkout-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.1rem;
+  }
+}
+
     </style>
   </head>
   <body>
-    <video class="video-background" autoplay muted loop>
-      <source src="./all_images/background.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
     <header>
-      <div class="logo">
-        <img src="./Images/logo.png" alt="Cafeteria Management" />
+      <div class="header-content">
+        <div class="logo">
+          <img src="./Images/logo.png" alt="Gokul Cafeteria" />
+        </div>
+        <nav>
+          <ul id="nav-links">
+            <!-- Dynamic navigation links will be inserted here -->
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Sign Up</a></li>
-          <li><a href="about_us.html">About Us</a></li>
-          <li><a href="signup.html" class="cta">Your Account</a></li>
-        </ul>
-      </nav>
     </header>
 
-    <div class="container">
-      <h1>Products</h1>
-      <div id="product-list"></div>
+    <main>
+      <section class="menu-section" id="product-list">
+        <!-- Product cards will be dynamically generated here -->
+      </section>
 
-      <h2>Shopping Cart</h2>
-      <div id="cart-items">
-        <p id="empty-cart">Your cart is empty.</p>
-      </div>
-      <div id="cart-total" class="hidden">
-        <p>Total: <span id="total-price">0.00Rs</span></p>
-        <button id="checkout-btn">Checkout</button>
-      </div>
-    </div>
-
+      <section class="cart-section">
+        <h2 class="cart-title">Your Cart</h2>
+        <div id="cart-items">
+          <p id="empty-cart">Your cart is empty.</p>
+        </div>
+        <div id="cart-total" class="cart-total hidden">
+          <div class="total-amount">
+            Total: <span id="total-price">₹0.00</span>
+          </div>
+          <button id="checkout-btn">Proceed to Checkout</button>
+        </div>
+      </section>
+    </main>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Navigation handling
+        const navLinks = document.getElementById("nav-links");
+        const userToken = localStorage.getItem("userToken");
+
+        if (userToken) {
+          navLinks.innerHTML = `
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="menu.html">Menu</a></li>
+                  <li><a href="book_seat_new.html">Book Seat</a></li>
+                  <li><a href="#" id="logout-btn" class="cta">Log Out</a></li>
+              `;
+
+          const logoutBtn = document.getElementById("logout-btn");
+          logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("userToken");
+            localStorage.removeItem("userRole");
+            alert("You have been logged out.");
+            window.location.href = "login.html";
+          });
+        } else {
+          navLinks.innerHTML = `
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="signup.html">Sign Up</a></li>
+              `;
+        }
+
+        // Menu and Cart functionality
         const products = [
-          { id: 1, name: "Chai", price: 12 },
-          { id: 2, name: "Pohe", price: 20 },
-          { id: 3, name: "Coffee", price: 30 },
-          { id: 4, name: "Patties", price: 20 },
-          { id: 5, name: "Burger", price: 80 },
+          { id: 1, name: "Chai", price: 12, image: "chai.jpg" },
+          { id: 2, name: "momo", price: 20, image: "momo.jpg" },
+          { id: 3, name: "Coffee", price: 30, image: "coffee.jpg" },
+          { id: 4, name: "Patties", price: 20, image: "patties.jpg" },
+          { id: 5, name: "Burger", price: 80, image: "burger.jpg" },
+          { id: 6, name: "Pizza", price: 120, image: "pizza.jpg" },
+          { id: 7, name: "Noodles", price: 60, image: "noodles.jpg" },
+          { id: 8, name: "Biryani", price: 140, image: "biryani.jpg" },
         ];
 
         let cartlist = [];
-
         const productList = document.getElementById("product-list");
         const cartItems = document.getElementById("cart-items");
         const emptyCart = document.getElementById("empty-cart");
         const cartTotal = document.getElementById("cart-total");
         const totalPrice = document.getElementById("total-price");
-        const checkoutbtn = document.getElementById("checkout-btn");
+        const checkoutBtn = document.getElementById("checkout-btn");
 
+        // Render products
         products.forEach((p) => {
           const div = document.createElement("div");
-          div.innerHTML = `<span>${p.name} price: ${p.price.toFixed(
-            2
-          )}Rs</span>
-          <button data-id="${p.id}">Add to Cart</button>`;
-          div.classList.add("product");
+          div.classList.add("product-card");
+          div.innerHTML = `
+                  <img src="./all_images/${p.image}" alt="${
+            p.name
+          }" class="product-image">
+                  <div class="product-info">
+                      <h3 class="product-name">${p.name}</h3>
+                      <div class="product-price">₹${p.price.toFixed(2)}</div>
+                      <button class="add-to-cart" data-id="${p.id}">
+                          Add to Cart <i class="fas fa-plus"></i>
+                      </button>
+                  </div>
+              `;
           productList.appendChild(div);
         });
 
-        productList.addEventListener("click", function (e) {
-          if (e.target.tagName === "BUTTON") {
-            const productId = parseInt(e.target.getAttribute("data-id"));
+        // Add to cart functionality
+        productList.addEventListener("click", (e) => {
+          if (e.target.closest(".add-to-cart")) {
+            const btn = e.target.closest(".add-to-cart");
+            const productId = parseInt(btn.getAttribute("data-id"));
             const product = products.find((p) => p.id === productId);
             addToCart(product);
             renderCart();
           }
         });
 
+        // Cart functionality
         function addToCart(product) {
           const existingItem = cartlist.find((item) => item.id === product.id);
           if (existingItem) {
-            existingItem.quantity += 1; // Increment quantity if the item already exists
+            existingItem.quantity += 1;
           } else {
-            cartlist.push({ ...product, quantity: 1 }); // Add new item with quantity 1
+            cartlist.push({ ...product, quantity: 1 });
           }
         }
 
         function renderCart() {
-          emptyCart.innerText = "";
           cartItems.innerHTML = "";
           if (cartlist.length) {
             emptyCart.classList.add("hidden");
@@ -218,74 +462,114 @@
             let cartprice = 0;
 
             cartlist.forEach((item) => {
-              const productdiv = document.createElement("div");
+              const div = document.createElement("div");
+              div.classList.add("cart-item");
               cartprice += item.price * item.quantity;
-              productdiv.innerHTML = `<span>${item.name} - ₹${item.price.toFixed(
-                2
-              )} x ${item.quantity}</span>
-                <button id="${item.id}">Delete</button>`;
-              productdiv.classList.add("product");
-              cartItems.appendChild(productdiv);
-
-              totalPrice.innerHTML = `${cartprice.toFixed(2)}Rs`;
+              div.innerHTML = `
+                          <div class="cart-item-info">
+                              <div class="cart-item-name">${item.name}</div>
+                              <div class="cart-item-price">₹${item.price.toFixed(
+                                2
+                              )} × ${item.quantity}</div>
+                          </div>
+                          <div class="cart-actions">
+                              <div class="quantity-control">
+                                  <button class="quantity-btn minus" data-id="${
+                                    item.id
+                                  }">-</button>
+                                  <span>${item.quantity}</span>
+                                  <button class="quantity-btn plus" data-id="${
+                                    item.id
+                                  }">+</button>
+                              </div>
+                              <i class="fas fa-trash remove-item" data-id="${
+                                item.id
+                              }"></i>
+                          </div>
+                      `;
+              cartItems.appendChild(div);
             });
+
+            totalPrice.textContent = `₹${cartprice.toFixed(2)}`;
           } else {
-            emptyCart.classList.remove("hidden");
+            cartItems.innerHTML = '<p id="empty-cart">Your cart is empty.</p>';
             cartTotal.classList.add("hidden");
           }
         }
 
-        checkoutbtn.addEventListener("click", async (e) => {
+        // Cart item controls
+        cartItems.addEventListener("click", (e) => {
+          const target = e.target;
+          const id = parseInt(target.getAttribute("data-id"));
+
+          if (target.classList.contains("minus")) {
+            const item = cartlist.find((item) => item.id === id);
+            if (item.quantity > 1) {
+              item.quantity -= 1;
+            } else {
+              cartlist = cartlist.filter((item) => item.id !== id);
+            }
+            renderCart();
+          }
+
+          if (target.classList.contains("plus")) {
+            const item = cartlist.find((item) => item.id === id);
+            item.quantity += 1;
+            renderCart();
+          }
+
+          if (target.classList.contains("remove-item")) {
+            cartlist = cartlist.filter((item) => item.id !== id);
+            renderCart();
+          }
+        });
+
+        // Checkout functionality
+        checkoutBtn.addEventListener("click", async () => {
+          if (!userToken) {
+            alert("Please login to checkout");
+            window.location.href = "login.html";
+            return;
+          }
+
           if (cartlist.length === 0) {
             alert("Your cart is empty!");
             return;
           }
 
-          const token = localStorage.getItem("userToken"); // Get the user's JWT token
-
-          // Prepare the order data
-          const orderData = {
-            items: cartlist.map((item) => ({
-              name: item.name,
-              price: item.price,
-              quantity: item.quantity, // Include the quantity dynamically
-            })),
-            totalAmount: parseFloat(totalPrice.innerText),
-          };
-
           try {
-            // Send the order to the backend
-            const response = await fetch("https://dynamic-caffeteria-backend.onrender.com/api/users/order", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-              body: JSON.stringify(orderData),
-            });
+            const response = await fetch(
+              "https://dynamic-caffeteria-backend.onrender.com/api/users/order",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${userToken}`,
+                },
+                body: JSON.stringify({
+                  items: cartlist.map((item) => ({
+                    name: item.name,
+                    price: item.price,
+                    quantity: item.quantity,
+                  })),
+                  totalAmount: parseFloat(
+                    totalPrice.textContent.replace("₹", "")
+                  ),
+                }),
+              }
+            );
 
             const data = await response.json();
             if (response.ok) {
               alert("Order placed successfully!");
-              cartlist.length = 0; // Clear the cart
-              renderCart(); // Re-render the cart
+              cartlist = [];
+              renderCart();
             } else {
-              alert(data.message || "Failed to place the order. Please try again.");
+              alert(data.message || "Failed to place order");
             }
           } catch (error) {
             console.error("Error:", error);
-            alert("An error occurred. Please try again later.");
-          }
-        });
-
-        cartItems.addEventListener("click", (e) => {
-          if (e.target.tagName === "BUTTON") {
-            const productId = parseInt(e.target.getAttribute("id"));
-            const productIndex = cartlist.findIndex((item) => item.id === productId);
-            if (productIndex !== -1) {
-              cartlist.splice(productIndex, 1); // Remove the item from the cart
-              renderCart();
-            }
+            alert("An error occurred. Please try again.");
           }
         });
       });

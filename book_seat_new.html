@@ -1,285 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Gokul Hotel !</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header h1 {
-            margin: 0;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #f8e7e7;
-        }
-        .logo img {
-            height: 70px;
-            width: 150px;
-            margin-left: 200px;
-            border: solid 3px rgb(249, 0, 0);
-            border-radius: 40px;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 50px;
-            font-size: 1.2rem;
-            margin: 0;
-            padding: 0;
-            margin-right: 100px;
-        }
-        nav ul li {
-            display: inline;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        nav ul li a.cta {
-            background-color: #ff4b5c;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-        .heading_new h1 {
-            background-color: #d57d7d;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-            align-items: center;
-        }
-        .container {
-            width: 90%;
-            margin: 2rem auto;
-        }
-        .cta-buttons {
-            height: 3.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 1rem;
-        }
-        .cta-buttons a {
-            font-size: 2rem;
-            font-weight: bolder;
-            text-decoration: none;
-            color: #fff;
-            background-color: #007bff;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-        .cta-buttons a:hover {
-            background-color: #0056b3;
-        }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 1rem;
-        }
-        .features div {
-            background-color: #fff;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 22%;
-            text-align: center;
-        }
-        .features div i {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-        .features h3 {
-            font-size: 1.8rem;
-            font-weight:bolder;
-        }
-        .features p {
-            font-size: 1.3rem;
-        }
-        .booking-form {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-        .booking-form h2 {
-            margin-top: 0;
-            font-size: 2.5rem;
-            font-weight: bolder;
-        }
-        .booking-form label {
-            font-size: 1.7rem;
-            font-weight: 800px;
-            display: block;
-            margin: 0.5rem 0 0.2rem;
-        }
-        .booking-form input, .booking-form select {
-            font-size: 1.2rem;
-            width: 100%;
-            height: 2.3rem;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .booking-form button {
-            font-size: 1.5rem;
-            font-weight: bolder;
-            width: 100%;
-            height: 3rem;
-            padding: 0.5rem;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .booking-form p {
-            font-size: 1.2rem;
-        }
-        .booking-form button:hover {
-            background-color: #0056b3;
-        }
-        .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        .footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            border-radius: 10px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Gokul Hotel!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fff1eb, #ace0f9);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: linear-gradient(to right, #ff6b35, #ffa57a);
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      height: 70px;
+      width: 150px;
+      border-radius: 40px;
+      border: 3px solid #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffd7c2;
+    }
+
+    nav ul li a.cta,
+    .menu-button {
+      background-color: #ff6b35;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #fff !important;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav ul li a.cta:hover,
+    .menu-button:hover {
+      background-color: #cc4e1a;
+      transform: translateY(-2px);
+    }
+
+    .main-container {
+      display: flex;
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 30px auto;
+      gap: 25px;
+      padding: 0 20px;
+    }
+
+    .sidebar {
+      flex: 0 0 35%;
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .sidebar h2 {
+      font-size: 1.7rem;
+      color: #ff6b35;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .features div {
+      background: linear-gradient(to bottom right, #fff7f0, #fff);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 150px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .features div:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .features div i {
+      font-size: 2rem;
+      color: #ff6b35;
+      margin-bottom: 0.5rem;
+    }
+
+    .features h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .features p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .booking-form {
+      flex: 0 0 65%;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .booking-form h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff6b35;
+      text-align: center;
+    }
+
+    .booking-form .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .booking-form label {
+      font-size: 1rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .booking-form input,
+    .booking-form select {
+      font-size: 1rem;
+      width: 100%;
+      padding: 10px 40px 10px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus {
+      border-color: #ff6b35;
+      outline: none;
+    }
+
+    .booking-form .form-group i {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #ff6b35;
+    }
+
+    .booking-form button {
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #ff6b35;
+      color: #fff;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .booking-form button:hover {
+      background-color: #cc4e1a;
+      transform: translateY(-3px);
+    }
+
+    .booking-form p {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: auto;
+    }
+
+    .footer a {
+      color: #ff6b35;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+
+      .sidebar,
+      .booking-form {
+        flex: 1;
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="./Images/logo.png" alt="cafeteria Management">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Sign up</a></li>
-                <li><a href="about_us.html">About us</a></li>
-                <li><a href="signup.html" class="cta">Your Account</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="heading_new"><h1>Welcome to Hotel Gokul !</h1></div>
-    <div class="container">
-        <div class="cta-buttons">
-            <a href="#booking">Book a Table Now!</a>
-            <a href="#menu">Check Menu</a>
-        </div>
-        <div class="features">
-            <div>
-                <i class="fas fa-clock"></i>
-                <h3>Real-Time Booking</h3>
-                <p>Live updates of table availability.</p>
-            </div>
-            <div>
-                <i class="fas fa-utensils"></i>
-                <h3>Dynamic Menu</h3>
-                <p>Always know what's cooking.</p>
-            </div>
-            <div>
-                <i class="fas fa-users"></i>
-                <h3>Family-Friendly</h3>
-                <p>Options for small groups, large groups, and families.</p>
-            </div>
-            <div>
-                <i class="fas fa-credit-card"></i>
-                <h3>Advance Payment</h3>
-                <p>Secure your reservation by paying a small advance, deducted from your final bill.</p>
-            </div>
-        </div>
-        <div id="booking" class="booking-form">
-            <h2>Book Your Table</h2>
-            <form id="bookingForm">
-                <label for="tableType">Table Type</label>
-                <select id="tableType" name="tableType">
-                    <option value="4-seater">4-Seater Table (₹100 advance)</option>
-                    <option value="8-seater">8-Seater Table (₹200 advance)</option>
-                    <option value="family">Family Table (₹300 advance)</option>
-                </select>
-                <label for="date">Date</label>
-                <input type="date" id="date" name="date">
-                <label for="time">Time</label>
-                <input type="time" id="time" name="time">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name">
-                <label for="contact">Contact Number</label>
-                <input type="text" id="contact" name="contact">
-                <button type="submit">Confirm and Pay</button>
-            </form>
-            <p class="mt-4 text-sm text-gray-600">Note: We take an advance payment to secure your booking. This amount will be deducted from your final bill. If you do not show up after booking, 50% of the advance payment will be deducted.</p>
-        </div>
+  <header>
+    <div class="logo">
+      <img src="./Images/logo.png" alt="Cafeteria Management">
     </div>
-    <footer class="footer">
-        <p>&copy; 2023 Cafeteria Management. All rights reserved.</p>
-        <p><a href="#terms">Terms and Conditions</a> | <a href="#support">Help and Support</a></p>
-    </footer>
+    <nav>
+      <ul id="nav-links">
+        <!-- Populated by JS -->
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Modal for Payment Confirmation -->
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Payment Confirmation</h2>
-            <p id="paymentDetails"></p>
-            <button id="confirmPayment">Confirm Payment</button>
+  <div class="main-container">
+    <aside class="sidebar">
+      <h2>Features</h2>
+      <div class="features">
+        <div>
+          <i class="fas fa-clock"></i>
+          <h3>Real-Time Booking</h3>
+          <p>Live updates of table availability.</p>
         </div>
-    </div>
+        <div>
+          <i class="fas fa-utensils"></i>
+          <h3>Dynamic Menu</h3>
+          <p>Always know what's cooking.</p>
+        </div>
+        <div>
+          <i class="fas fa-users"></i>
+          <h3>Family-Friendly</h3>
+          <p>Options for small groups, large groups, and families.</p>
+        </div>
+        <div>
+          <i class="fas fa-credit-card"></i>
+          <h3>Advance Payment</h3>
+          <p>Secure your reservation by paying a small advance.</p>
+        </div>
+      </div>
+      <a href="menu.html" class="menu-button">Check Menu</a>
+    </aside>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    <div class="booking-form">
+      <h2>Book Your Table</h2>
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="tableType">Table Type</label>
+          <select id="tableType" name="tableType">
+            <option value="4-seater">4-Seater Table (₹100 advance)</option>
+            <option value="8-seater">8-Seater Table (₹200 advance)</option>
+            <option value="family">Family Table (₹300 advance)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date">
+        </div>
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" id="time" name="time">
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact Number</label>
+          <input type="text" id="contact" name="contact" placeholder="Enter your contact number">
+        </div>
+        <button type="submit" class="menu-button">Confirm and Pay</button>
+      </form>
+      <p>Note: We take an advance payment to secure your booking. This amount will be deducted from your final bill. If you do not show up after booking, 50% of the advance payment will be deducted.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2023 Cafeteria Management. All rights reserved.</p>
+    <p><a href="#terms">Terms and Conditions</a> | <a href="#support">Help and Support</a></p>
+  </footer>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('bookingForm').addEventListener('submit', async function (event) {
                 event.preventDefault();
 
@@ -328,6 +373,32 @@
                 }
             });
         });
-    </script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navLinks = document.getElementById("nav-links");
+      const userToken = localStorage.getItem("userToken");
+
+      if (userToken) {
+        navLinks.innerHTML = `
+          <li><a href="home.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="book_seat_new.html">Book Seat</a></li>
+          <li><a href="#" id="logout-btn" class="menu-button">Log Out</a></li>
+        `;
+
+        document.getElementById("logout-btn").addEventListener("click", () => {
+          localStorage.removeItem("userToken");
+          localStorage.removeItem("userRole");
+          alert("You have been logged out.");
+          window.location.href = "login.html";
+        });
+      } else {
+        navLinks.innerHTML = `
+          <li><a href="home.html">Home</a></li>
+          <li><a href="login.html" class="menu-button">Login</a></li>
+          <li><a href="signup.html" class="menu-button">Sign Up</a></li>
+        `;
+      }
+    });
+  </script>
 </body>
 </html>
