@@ -38,7 +38,7 @@
   <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const socket = io("http://localhost:5000");
+      const socket = io("https://dynamic-caffeteria-backend.onrender.com");
       const trafficDisplay = document.getElementById("trafficLevelDisplay");
 
       // Listen for live traffic updates
@@ -48,7 +48,7 @@
       });
 
       // On initial load, fetch current level
-      fetch("http://localhost:5000/api/getTraffic")
+      fetch("https://dynamic-caffeteria-backend.onrender.com/api/users/getTraffic")
         .then((res) => res.json())
         .then((data) => {
           trafficDisplay.textContent = data.traffic.level;
