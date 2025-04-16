@@ -120,6 +120,61 @@
         background: #E3DFFF;
         color: #5036B0;
     }
+    @media (max-width: 767px) {
+    body {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+        padding: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .left, .right {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .left h2,
+    .right h2 {
+        font-size: 1.8rem;
+    }
+
+    .right {
+        order: -1; /* Show the right side on top for mobile */
+        border-radius: 10px 10px 0 0;
+    }
+
+    .left {
+        border-radius: 0 0 10px 10px;
+    }
+
+    .left form input,
+    .left form button {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    .right a {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .social-login {
+        gap: 15px;
+    }
+
+    .social-icon {
+        font-size: 26px;
+    }
+}
+
   </style>
 </head>
 <body>
