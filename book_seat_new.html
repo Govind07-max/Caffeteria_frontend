@@ -233,16 +233,151 @@
     }
 
     @media (max-width: 768px) {
-      .main-container {
-        flex-direction: column;
-      }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    text-align: center;
+  }
 
-      .sidebar,
-      .booking-form {
-        flex: 1;
-        width: 100%;
-      }
-    }
+  .logo img {
+    display: none;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2px;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 20px 10px;
+    padding: 0;
+  }
+
+  .sidebar,
+  .booking-form {
+    flex: 1 1 100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .features {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .features div {
+    max-width: 100%;
+  }
+
+  .booking-form button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .booking-form h2,
+  .sidebar h2 {
+    font-size: 1.6rem;
+  }
+
+  .booking-form label,
+  .booking-form input,
+  .booking-form select {
+    font-size: 0.95rem;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    padding: 10px;
+  }
+
+  .booking-form p {
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    padding: 0.8rem;
+  }
+
+  .footer a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .logo img {
+    width: 120px;
+    height: auto;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .main-container {
+    margin: 15px 5px;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .features div {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .booking-form h2,
+  .sidebar h2 {
+    font-size: 1.4rem;
+  }
+
+  .booking-form label {
+    font-size: 0.9rem;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .booking-form button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .booking-form .form-group i {
+    font-size: 1rem;
+    right: 10px;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+  }
+}
+
   </style>
 </head>
 <body>
