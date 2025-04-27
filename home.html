@@ -81,71 +81,36 @@
         height: 60px;
         width: 200px;
         padding: 10px 20px;
-        background-color: #ff704d; /* Updated color for a modern look */
+        background-color: #ff704d;
         color: #fff;
         text-decoration: none;
-        border-radius: 30px; /* Rounded corners */
+        border-radius: 30px;
         margin-top: 30px;
         font-weight: bold;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        transition: all 0.3s ease; /* Smooth transition for hover effects */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
       }
-
       .hero-text .btn:hover,
       .hero-text .btn_1:hover {
-        background-color: #e65c2a; /* Darker shade on hover */
-        transform: translateY(-3px); /* Slight lift effect */
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        background-color: #e65c2a;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
       }
-
       .hero-text .btn:active,
       .hero-text .btn_1:active {
-        background-color: #d94a1f; /* Even darker shade on click */
-        transform: translateY(2px); /* Pressed effect */
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+        background-color: #d94a1f;
+        transform: translateY(2px);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
       }
-
       .hero-text .btn_1 {
-        background-color: #007bff; /* Different color for "Book Seat" */
+        background-color: #007bff;
         margin-left: 20px;
       }
-
       .hero-text .btn_1:hover {
-        background-color: #0056b3; /* Darker shade for "Book Seat" on hover */
+        background-color: #0056b3;
       }
-
       .hero-text .btn_1:active {
-        background-color: #004494; /* Even darker shade for "Book Seat" on click */
-      }
-      .btn:hover {
-        background-color: #3e8e41;
-      }
-      .btn:active {
-        background-color: #3e8e41;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-      }
-      .btn_1 {
-        display: inline-block;
-        text-align: center;
-        font-size: 1.2rem;
-        height: 60px;
-        width: 180px;
-        padding: 10px 30px;
-        background-color: #0031d2;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-        margin-top: 30px;
-        margin-left: 20px;
-      }
-      .btn_1:hover {
-        background-color: #3e8e41;
-      }
-      .btn_1:active {
-        background-color: #3e8e41;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
+        background-color: #004494;
       }
       .hero-image img {
         max-width: 900px;
@@ -184,9 +149,6 @@
         margin-bottom: 50px;
         font-family: Gentona;
         font-size: 4rem;
-      }
-      h1 {
-        justify-content: center;
       }
       .food-item,
       .feature {
@@ -228,11 +190,6 @@
         padding: 10px;
         width: 400px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      .feature:active {
-        background-color: #3e8e41;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
       }
       .stats {
         display: flex;
@@ -302,181 +259,165 @@
       .footer-bottom p {
         font-size: 0.9em;
       }
-      /* ===================== Responsive CSS ===================== */
 
-/* Medium devices (tablets, 768px and up) */
-@media (max-width: 1024px) {
-  .logo img {
-    margin-left: 30px;
-    width: 80px;
-    height: auto;
-  }
+      /* Mobile view adjustments */
+      @media (max-width: 767px) {
+        header {
+          flex-direction: column;
+          align-items: center;
+          background-color: #f8f8f8;
+          padding: 1rem 0;
+          border-bottom: 1px solid #ddd;
+        }
 
-  nav ul {
-    gap: 20px;
-    font-size: 1rem;
-    margin-right: 50px;
-  }
+        .logo {
+          display: none;
+        }
 
-  .hero {
-    flex-direction: column;
-    padding: 20px;
-  }
+        nav {
+          width: 100%;
+        }
 
-  .hero-text {
-    max-width: 90%;
-    margin: 40px auto;
-    text-align: center;
-  }
+        nav ul {
+          flex-direction: row;
+          justify-content: center;
+          gap: 15px;
+          padding: 0;
+        }
 
-  .hero-text h1 {
-    font-size: 3.5em;
-  }
+        nav ul li {
+          width: auto;
+          text-align: center;
+          padding: 0;
+          border-bottom: none;
+        }
 
-  .hero-image img {
-    width: 90%;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 50px;
-  }
+        nav ul li a {
+          text-decoration: none;
+          color: #333;
+          font-size: 1rem;
+          display: block;
+          width: 100%;
+          padding: 8px 12px;
+        }
 
-  .food_information h1,
-  .features_information h1 {
-    margin-left: 0;
-    text-align: center;
-    font-size: 2.5rem;
-  }
+        .logout-btn {
+          text-align: center;
+          width: 100%;
+          margin-top: 15px;
+          padding: 0.6rem 1.2rem;
+          background-color: #ff4d4f;
+          border: none;
+          color: white;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background-color 0.2s ease-in-out;
+        }
 
-  .container {
-    gap: 50px;
-    padding: 0 20px;
-  }
+        .logout-btn:hover {
+          background-color: #e04445;
+        }
 
-  .feature {
-    width: 90%;
-    margin: 0 auto;
-  }
+        .hero {
+          flex-direction: column; /* Stack elements vertically */
+          align-items: center; /* Center align content */
+          text-align: center; /* Center text */
+          padding: 20px; /* Add padding for better spacing */
+        }
 
-  .stats {
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px 20px;
-    height: auto;
-  }
+        .hero-text {
+          max-width: 90%; /* Adjust width for better fit */
+          margin: 0 auto; /* Center horizontally */
+        }
 
-  .footer-container {
-    flex-direction: column;
-    padding: 0 20px;
-    align-items: center;
-  }
+        .hero-text h1 {
+          font-size: 2rem; /* Reduce heading size */
+        }
 
-  .footer-section {
-    padding: 20px 0;
-    text-align: center;
-  }
-}
+        .hero-text p {
+          font-size: 0.9rem; /* Reduce paragraph size */
+        }
 
-/* Small devices (phones, up to 767px) */
-@media (max-width: 767px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    background-color: #f8f8f8;
-    padding: 1rem 0;
-    border-bottom: 1px solid #ddd;
-  }
+        .hero-text .btn,
+        .hero-text .btn_1 {
+          font-size: 1rem; /* Adjust button text size */
+          height: 50px; /* Reduce button height */
+          width: 150px; /* Reduce button width */
+          padding: 8px 16px; /* Adjust padding */
+        }
 
-  .logo {
-    display: none;
-  }
+        .hero-image img {
+          width: 90%; /* Adjust image width */
+          height: auto; /* Maintain aspect ratio */
+        }
 
-  nav {
-    width: 100%;
-  }
+        .food_information h1,
+        .features_information h1 {
+          margin-left: 0; /* Remove left margin */
+          text-align: center; /* Center align text */
+          font-size: 2rem; /* Adjust font size */
+        }
 
-  nav ul {
-    list-style: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
-  }
+        .container {
+          gap: 20px; /* Reduce gap between items */
+          padding: 0 10px; /* Add padding for better spacing */
+        }
 
-  nav ul li {
-    width: 100%;
-    text-align: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
-  }
+        .food-item img,
+        .feature img {
+          width: 120px; /* Reduce image size */
+          height: 120px;
+        }
 
-  nav ul li:last-child {
-    border-bottom: none;
-  }
+        .food-item p,
+        .feature h3 {
+          font-size: 0.9rem; /* Adjust text size */
+        }
 
-  nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.1rem;
-    display: block;
-    width: 100%;
-  }
+        .stats {
+          flex-direction: column; /* Stack stats vertically */
+          align-items: center; /* Center align stats */
+          text-align: center;
+          padding: 15px; /* Adjust padding */
+        }
 
-  .logout-btn {
-    text-align: center;
-    width: 100%;
-    margin-top: 15px;
-    padding: 0.6rem 1.2rem;
-    background-color: #ff4d4f;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out;
-  }
+        .stat h2 {
+          font-size: 1.2rem; /* Reduce stat heading size */
+        }
 
-  .logout-btn:hover {
-    background-color: #e04445;
-  }
+        .stat p {
+          font-size: 0.9rem; /* Reduce stat paragraph size */
+        }
 
-  /* Adjust hero area below header */
-  .hero-text h1 {
-    font-size: 2.5em;
-  }
+        footer {
+          padding: 20px; /* Adjust padding for smaller screens */
+          font-size: 0.8rem; /* Adjust footer text size */
+        }
 
-  .hero-text p {
-    font-size: 1em;
-  }
+        .footer-container {
+          flex-direction: column; /* Stack footer sections vertically */
+          align-items: center; /* Center align sections */
+          gap: 20px; /* Add spacing between sections */
+        }
 
-  .hero-text .btn,
-  .hero-text .btn_1 {
-    width: 100%;
-    margin-left: 0;
-  }
+        .footer-section {
+          text-align: center; /* Center align text */
+          padding: 10px 0; /* Add padding */
+        }
 
-  .client-logos {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+        .footer-section ul {
+          padding: 0;
+        }
 
-  .stats {
-    padding: 20px;
-  }
+        .footer-section ul li {
+          margin-bottom: 5px; /* Reduce spacing between list items */
+        }
 
-  .food-item img,
-  .feature img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .food-item p,
-  .feature h3 {
-    font-size: 18px;
-  }
-}
-
-
+        .footer-bottom {
+          font-size: 0.8em; /* Adjust font size */
+        }
+      }
     </style>
   </head>
   <body>
