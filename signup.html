@@ -120,6 +120,58 @@
         background: #E3DFFF;
         color: #5036B0;
     }
+
+    @media (max-width: 767px) {
+  body {
+    flex-direction: column; /* Stack elements vertically */
+    height: auto; /* Adjust height for scrolling */
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+  .container {
+    flex-direction: column; /* Stack left and right sections vertically */
+    width: 100%; /* Full width for mobile */
+    height: auto; /* Adjust height */
+    box-shadow: none; /* Remove shadow for simplicity */
+  }
+
+  .left, .right {
+    width: 100%; /* Full width for sections */
+    padding: 20px; /* Adjust padding */
+  }
+
+  .left form input {
+    font-size: 0.9rem; /* Adjust input font size */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .left form button {
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .social-login {
+    gap: 10px; /* Reduce gap between icons */
+  }
+
+  .social-icon {
+    font-size: 25px; /* Adjust icon size */
+  }
+
+  .right h2 {
+    font-size: 1.8rem; /* Adjust heading size */
+  }
+
+  .right p {
+    font-size: 0.9rem; /* Adjust paragraph size */
+  }
+
+  .right a {
+    font-size: 0.9rem; /* Adjust link font size */
+    padding: 8px 15px; /* Adjust padding */
+  }
+}
+
   </style>
 </head>
 <body>
