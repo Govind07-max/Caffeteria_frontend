@@ -706,7 +706,7 @@ main {
 
             // Create an order on the server
             const orderResponse = await fetch(
-              "https://dynamic-caffeteria-backend.onrender.com/api/payments/create-order",
+              "https://dynamic-caffeteria-backend.onrender.com/api/payment/order",
               {
                 method: "POST",
                 headers: {
@@ -735,7 +735,7 @@ main {
                 try {
                   // Verify payment on the server
                   const verifyResponse = await fetch(
-                    "https://dynamic-caffeteria-backend.onrender.com/api/payments/verify",
+                    "https://dynamic-caffeteria-backend.onrender.com/api/payment/verify",
                     {
                       method: "POST",
                       headers: {
